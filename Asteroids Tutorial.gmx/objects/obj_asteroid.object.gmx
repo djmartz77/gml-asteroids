@@ -25,12 +25,143 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>asteroid_base_speed = 0.5;
+            <string>points = 10;//killing this asteroid is worth 10 points
+
 image_speed = 0;
 image_index = irandom(2);
 
 direction = random(360);
-speed = asteroid_base_speed + random(2);
+speed = global.asteroid_base_speed + random(2) + (global.level div global.level_cycle);
+
+var edge_offset = sprite_get_width(spr_asteroid)/2;
+while ((distance_to_object(obj_player) &lt; 100) || place_meeting(x,y,obj_asteroid)){
+    x = edge_offset + random(room_width - 2*edge_offset);
+    y = edge_offset + random(room_height - 2*edge_offset);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///explode into child asteroids
+bullet = other;
+
+child1_direction = bullet.direction + 90 + random(45);
+if(child1_direction &gt; 360) {
+    child1_direction -= 360;
+}
+
+child2_direction = child1_direction + 180 - random(45);
+if(child2_direction &gt; 360) {
+    child2_direction -= 360;
+}
+
+offset_angle = random(360);
+asteroid_width = sprite_get_width(spr_asteroid_s);
+asteroid_height = sprite_get_height(spr_asteroid_s);
+
+x_offset = asteroid_width * cos(offset_angle);
+y_offset = asteroid_height * sin(offset_angle);
+
+while( (x + (x_offset + asteroid_width)) &gt;= room_width) x-=1; 
+while( (x - (x_offset + asteroid_width)) &lt;= 0) x+=1; 
+while( (y + (y_offset + asteroid_height)) &gt;= room_height) y-=1; 
+while( (y - (y_offset + asteroid_height)) &lt;= 0) y+=1; 
+
+o = instance_create(x + x_offset, y + y_offset, obj_asteroid_s);
+o = instance_create(x - x_offset, y - y_offset, obj_asteroid_s);
+
+
+
+//make the particles
+var o;
+var i;
+var num_particles = irandom(2) + 2;
+var angle_offset = 360/num_particles;
+
+for (i = 0; i &lt; num_particles; i+=1){
+    o = instance_create(x, y, obj_dead_asteroid);
+    o.angle = (i * angle_offset) + random(angle_offset * 1.5);
+}
+
+with (obj_dead_asteroid){
+    direction = angle;
+    image_angle = angle;
+    speed = 3;
+}
+
+audio_play_sound(snd_explosion, 0, 0);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_boundary">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///bounce if room bounciness is on
+if(global.room_bounce){
+    move_bounce_all(false);
+} else {
+    move_wrap(true, true, sprite_width/2);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_asteroid">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///bounce if asteroid bounciness is on
+if(global.asteroid_bounce){
+    move_bounce_all(false);
+}
 </string>
           </argument>
         </arguments>
@@ -53,34 +184,9 @@ speed = asteroid_base_speed + random(2);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///explode into child asteroids
-bullet = other;
+            <string>///score the shot
+global.points += self.points;
 
-if (bullet.direction &gt; 90) {
-    child1_direction = bullet.direction - 90;
-    child2_direction = bullet.direction + 90;
-} else {
-    child1_direction = bullet.direction + 270;
-    child2_direction = bullet.direction + 90;
-}
-
-if (child2_direction &gt; 360) {
-    child2_direction -= 180;
-}
-
-child1 = instance_create(x + (16 * cos(child1_direction)), y + (16 * sin(child1_direction)), obj_asteroid_s);
-child2 = instance_create(x + (16 * cos(child2_direction)), y + (16 * sin(child2_direction)), obj_asteroid_s);
-
-child1.direction = child1_direction;
-child2.direction = child2_direction;
-
-
-child2.x += 16 * cos(child2.direction);
-child2.y += 16 * sin(child2.direction);
- 
-global.points += 10;
-
-audio_play_sound(snd_explosion, 0, 0);
 
 </string>
           </argument>
@@ -88,17 +194,27 @@ audio_play_sound(snd_explosion, 0, 0);
       </action>
       <action>
         <libid>1</libid>
-        <id>203</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>other</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///destroy the bullet unless infinite piercing
+if(!global.infinite_piercing_shot){
+    instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
       </action>
       <action>
         <libid>1</libid>
@@ -118,37 +234,82 @@ audio_play_sound(snd_explosion, 0, 0);
     <event eventtype="4" ename="obj_player">
       <action>
         <libid>1</libid>
-        <id>331</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_restart_game</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-    </event>
-    <event eventtype="7" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>112</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_wrap</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>4</kind>
-            <string>2</string>
+            <kind>1</kind>
+            <string>///destroy the asteroid unless invincible
+if (!global.player_invincible){
+    instance_destroy();
+    //score a ram
+    if (global.player_ram){
+        global.points += self.points;
+    }
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>other</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///destroy the player unless invinvible or ramming
+if (!global.player_invincible){
+    if(!global.player_ram){
+        instance_destroy();
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///wrap
+move_wrap(true, true, sprite_width);
+
+</string>
           </argument>
         </arguments>
       </action>

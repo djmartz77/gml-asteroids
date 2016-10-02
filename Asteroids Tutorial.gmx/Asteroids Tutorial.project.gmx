@@ -7,24 +7,66 @@
   <sounds name="sound">
     <sound>sound\snd_shoot</sound>
     <sound>sound\snd_explosion</sound>
+    <sound>sound\snd_thrusters</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_player_inv</sprite>
     <sprite>sprites\spr_bullet</sprite>
     <sprite>sprites\spr_asteroid</sprite>
     <sprite>sprites\spr_asteroid_s</sprite>
+    <sprite>sprites\spr_dead_player</sprite>
+    <sprite>sprites\spr_dead_asteroid</sprite>
+    <sprite>sprites\spr_boundary</sprite>
+    <sprite>sprites\spr_menu_arrow</sprite>
+    <sprites name="Menu">
+      <sprite>sprites\spr_start</sprite>
+      <sprite>sprites\spr_options</sprite>
+      <sprite>sprites\spr_controls</sprite>
+      <sprite>sprites\spr_quit</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_save.gml</script>
+    <script>scripts\scr_load.gml</script>
+    <script>scripts\scr_menu_select.gml</script>
+    <script>scripts\scr_menu.gml</script>
+  </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_small</font>
+    <font>fonts\fnt_large</font>
+    <font>fonts\fnt_menu</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_bullet</object>
     <object>objects\obj_asteroid</object>
     <object>objects\obj_asteroid_s</object>
-    <object>objects\obj_score</object>
+    <object>objects\obj_background_functions</object>
+    <object>objects\obj_spawner</object>
+    <object>objects\obj_dead_player</object>
+    <object>objects\obj_dead_asteroid</object>
+    <object>objects\obj_game_over</object>
+    <object>objects\obj_boundary</object>
+    <object>objects\obj_pause</object>
+    <objects name="Menu">
+      <object>objects\obj_menu</object>
+      <object>objects\obj_start</object>
+      <object>objects\obj_options</object>
+      <object>objects\obj_controls</object>
+      <object>objects\obj_quit</object>
+    </objects>
+    <objects name="Options">
+      <object>objects\obj_options_screen</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_initialize</room>
+    <room>rooms\rm_menu</room>
     <room>rooms\rm_game</room>
+    <room>rooms\rm_options</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

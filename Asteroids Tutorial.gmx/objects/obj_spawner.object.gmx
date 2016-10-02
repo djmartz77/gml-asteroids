@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,31 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.points = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_set_colour(c_green);
-draw_text(x,y, global.points);
+            <string>///Spawn asteroids and raise the difficulty
+if (!instance_exists(obj_asteroid)) {
+    global.level += 1;
+    var i = 0;
+    var edge_offset = 0;
+    for (i = 0; i &lt; global.asteroid_base_num + ((global.level - 1) mod global.level_cycle); i += 1){ 
+        if(global.room_bounce){
+            edge_offset = sprite_get_width(spr_asteroid)/2;
+        }
+        instance_create(edge_offset + random(room_width - 2*edge_offset), edge_offset + random(room_height - 2*edge_offset), obj_asteroid);
+    }
+}
 </string>
           </argument>
         </arguments>
