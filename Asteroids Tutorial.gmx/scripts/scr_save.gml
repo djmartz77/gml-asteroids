@@ -11,11 +11,13 @@ ini_write_real("Preferences", "Lives", global.starting_lives);
 ini_write_real("Preferences", "Level Cycle", global.level_cycle); //how many levels before the levels repeat
 ini_write_real("Preferences", "Room Bounce", global.room_bounce);
 ini_write_real("Preferences", "Asteroid Bounce", global.asteroid_bounce);
+ini_write_real("Preferences", "Quiet Thrusters", global.quiet_thrusters);
 
 //Read in Power Ups
 ini_write_real("Power Ups", "Player Ram", global.player_ram);
-ini_write_real("Power Ups", "Piercing Shot", global.piercing_shot);
-ini_write_real("Power Ups", "Infinite Penetration", global.infinite_piercing_shot);
+ini_write_real("Power Ups", "Piercing Shot", global.penetrating_shot);
+ini_write_real("Power Ups", "Infinite Penetration", global.infinite_penetration);
+ini_write_real("Power Ups", "In Game Power Ups", global.in_game_powerups);
 
 //reset the number of extra lives in case it changed
 global.lives = global.starting_lives - 1;

@@ -149,14 +149,14 @@ global.points += self.points;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///destroy the bullet unless piercing
-if(!piercing){
+            <string>///destroy the bullet unless penetrating
+if(!penetration){
     instance_destroy();
 }
 
 //you can only pierce one asteroid
-if(global.piercing_shot &amp;&amp; (!global.infinite_piercing_shot)) {
-    piercing = false;
+if(global.penetrating_shot &amp;&amp; (!global.infinite_penetration)) {
+    penetration = false;
 }
 </string>
           </argument>

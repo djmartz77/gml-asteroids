@@ -209,7 +209,7 @@ global.points += self.points;
           <argument>
             <kind>1</kind>
             <string>///destroy the bullet unless infinite piercing
-if(!global.infinite_piercing_shot){
+if(!global.infinite_penetration){
     instance_destroy();
 }
 </string>

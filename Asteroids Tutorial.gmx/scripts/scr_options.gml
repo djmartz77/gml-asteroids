@@ -16,12 +16,39 @@ switch (obj_options_screen.opt_pos) {
         }
         break;
 
-    case options.room_bounce:
-        //toggle whether asteroids bounce off of the room boundary or not
-        if(global.room_bounce) {
-            global.room_bounce = false;
+    case options.quiet_thrusters:
+        //toggle whether the thrusters make a sound or not
+        if(global.quiet_thrusters) {
+            global.quiet_thrusters = false;
         } else {
-            global.room_bounce = true;
+            global.quiet_thrusters = true;
+        }
+        break;
+        
+    case options.powerups:
+        //toggle whether there are in-game powerups
+        if(global.in_game_powerups) {
+            global.in_game_powerups = false;
+        } else {
+            global.in_game_powerups = true;
+        }
+        break;
+        
+    case options.penetrating_shot:
+        //toggle whether the player's shots penetrate a small asteroid
+        if(global.penetrating_shot) {
+            global.penetrating_shot = false;
+        } else {
+            global.penetrating_shot = true;
+        }
+        break;
+        
+    case options.infinite_penetration:
+        //toggle whether the player's shots penetrate all asteroids
+        if(global.infinite_penetration) {
+            global.infinite_penetration = false;
+        } else {
+            global.infinite_penetration = true;
         }
         break;
         
@@ -33,9 +60,19 @@ switch (obj_options_screen.opt_pos) {
             global.asteroid_bounce = true;
         }
         break;
+
+    case options.reset_hs:
+        //set the flag to reset the high score
+        if(obj_reset_hs.reset_hs = true) {
+            obj_reset_hs.reset_hs = false;
+        } else {
+            obj_reset_hs.reset_hs = true;
+        }
+        break;
         
     case options.save:
-        //save the options, load them back in and return to the menu screen
+        //reset high score if checked and save options
+        if(obj_reset_hs.reset_hs) global.high_score = 0;
         scr_save();
         room_goto(rm_menu);
         break;

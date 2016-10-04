@@ -274,8 +274,10 @@ if (speed = 0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///play thruster sound
-audio_play_sound(snd_thrusters, 1 , true);
+            <string>///play thruster sound unless quiet
+if(!global.quiet_thrusters){
+    audio_play_sound(snd_thrusters, 1 , true);
+}
 </string>
           </argument>
         </arguments>
@@ -328,7 +330,9 @@ audio_play_sound(snd_shoot, 0, 0);
           <argument>
             <kind>1</kind>
             <string>///stop thrusters sound
-audio_stop_sound(snd_thrusters);
+if(!global.quiet_thrusters){
+    audio_stop_sound(snd_thrusters);
+}
 </string>
           </argument>
         </arguments>

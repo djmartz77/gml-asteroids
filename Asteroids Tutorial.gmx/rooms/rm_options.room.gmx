@@ -13,8 +13,13 @@
   <code>enum options{
     starting_lives,
     level_cycle,
+    quiet_thrusters,
+    powerups,
+    penetrating_shot,
+    infinite_penetration,
     room_bounce,
     asteroid_bounce,
+    reset_hs,
     save,
     cancel
 }</code>
@@ -59,27 +64,41 @@
   </views>
   <instances>
     <instance objName="obj_options_screen" x="0" y="0" name="inst_295CBF5A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_lives" x="32" y="159" name="inst_C0575DF5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_1_lives" x="288" y="160" name="inst_AA0667B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_2_lives" x="320" y="160" name="inst_50A65005" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_4_lives" x="384" y="160" name="inst_13E60A4E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_3_lives" x="352" y="160" name="inst_CAF25A03" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_5_lives" x="416" y="160" name="inst_A47EFC6E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_lives" x="62" y="159" name="inst_C0575DF5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_1_lives" x="318" y="160" name="inst_AA0667B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_2_lives" x="350" y="160" name="inst_50A65005" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_4_lives" x="414" y="160" name="inst_13E60A4E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_3_lives" x="382" y="160" name="inst_CAF25A03" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_5_lives" x="446" y="160" name="inst_A47EFC6E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_save" x="800" y="576" name="inst_61B2EAD7" locked="0" code="" scaleX="1.25" scaleY="1.25" colour="4294967295" rotation="0"/>
     <instance objName="obj_cancel" x="800" y="672" name="inst_A67D6660" locked="0" code="" scaleX="1.25" scaleY="1.25" colour="4294967295" rotation="0"/>
-    <instance objName="obj_level_cycle" x="12" y="224" name="inst_FE916002" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_4_speed_levels" x="384" y="224" name="inst_18A5D0A5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_powerups" x="136" y="288" name="inst_1A2A967D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_asteroids_bounce_section" x="96" y="424" name="inst_67F468ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_bounce" x="36" y="480" name="inst_2E4391F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_bounce_on" x="332" y="480" name="inst_23D5D8CF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_bounce_off" x="396" y="480" name="inst_D8EFC904" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_asteroid_bounce" x="44" y="524" name="inst_EB098B0A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_asteroid_bounce_on" x="332" y="524" name="inst_2AC6C8E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_2_speed_levels" x="320" y="224" name="inst_62095178" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_3_speed_levels" x="352" y="224" name="inst_EA4297FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_5_speed_levels" x="416" y="224" name="inst_D2704689" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_asteroid_bounce_off" x="396" y="524" name="inst_0AB570E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_level_cycle" x="42" y="208" name="inst_FE916002" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_4_speed_levels" x="414" y="208" name="inst_18A5D0A5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_powerups" x="170" y="312" name="inst_1A2A967D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_asteroids_bounce_section" x="104" y="501" name="inst_67F468ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_bounce" x="38" y="553" name="inst_2E4391F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_bounce_on" x="366" y="553" name="inst_23D5D8CF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_bounce_off" x="430" y="553" name="inst_D8EFC904" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_asteroid_bounce" x="41" y="597" name="inst_EB098B0A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_asteroid_bounce_on" x="366" y="597" name="inst_2AC6C8E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_2_speed_levels" x="350" y="208" name="inst_62095178" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_3_speed_levels" x="382" y="208" name="inst_EA4297FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_5_speed_levels" x="446" y="208" name="inst_D2704689" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_asteroid_bounce_off" x="430" y="597" name="inst_0AB570E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_quiet_thrusters" x="58" y="264" name="inst_BB182819" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_quiet_thrusters_on" x="366" y="264" name="inst_DA43A08B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_quiet_thrusters_off" x="430" y="264" name="inst_F24FB36E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_in_game_powerups" x="52" y="352" name="inst_3CC80848" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_in_game_pow_on" x="366" y="352" name="inst_0861679D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_in_game_pow_off" x="430" y="352" name="inst_703A2FA0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_penetrating_shot" x="132" y="400" name="inst_8E33C814" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_infinite_penetration" x="48" y="440" name="inst_9DCFD59F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_pen_shot_on" x="368" y="400" name="inst_82547A3E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_pen_shot_off" x="432" y="400" name="inst_DB2247AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_inf_pen_off" x="432" y="444" name="inst_70776527" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_inf_pen_on" x="368" y="444" name="inst_F5F56F1B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_reset_hs" x="48" y="684" name="inst_4D036ADA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_reset_on_save" x="356" y="664" name="inst_E4871993" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

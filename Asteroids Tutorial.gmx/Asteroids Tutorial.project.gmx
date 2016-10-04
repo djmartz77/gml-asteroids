@@ -30,14 +30,15 @@
         <sprite>sprites\spr_lives</sprite>
         <sprite>sprites\spr_ship_ram</sprite>
         <sprite>sprites\spr_off_walls</sprite>
+        <sprite>sprites\spr_quiet_thrusters</sprite>
         <sprite>sprites\spr_penetrating_shot</sprite>
         <sprite>sprites\spr_off_each_other</sprite>
         <sprite>sprites\spr_infinite_penetration</sprite>
+        <sprite>sprites\spr_in_game_powerups</sprite>
         <sprite>sprites\spr_level_cycle</sprite>
         <sprite>sprites\spr_reset_high_score</sprite>
         <sprite>sprites\spr_asteroids_bounce_section</sprite>
         <sprite>sprites\spr_powerups</sprite>
-        <sprite>sprites\spr_quiet_thrusters</sprite>
         <sprite>sprites\spr_reset</sprite>
         <sprite>sprites\spr_1</sprite>
         <sprite>sprites\spr_2</sprite>
@@ -46,6 +47,7 @@
         <sprite>sprites\spr_5</sprite>
         <sprite>sprites\spr_save</sprite>
         <sprite>sprites\spr_cancel</sprite>
+        <sprite>sprites\spr_reset_on_save</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -88,8 +90,16 @@
     <objects name="Options">
       <object>objects\obj_options_screen</object>
       <object>objects\obj_wall_bounce_on</object>
+      <object>objects\obj_inf_pen_on</object>
+      <object>objects\obj_in_game_pow_on</object>
+      <object>objects\obj_pen_shot_on</object>
+      <object>objects\obj_quiet_thrusters_on</object>
       <object>objects\obj_asteroid_bounce_on</object>
       <object>objects\obj_wall_bounce_off</object>
+      <object>objects\obj_inf_pen_off</object>
+      <object>objects\obj_quiet_thrusters_off</object>
+      <object>objects\obj_in_game_pow_off</object>
+      <object>objects\obj_pen_shot_off</object>
       <object>objects\obj_asteroid_bounce_off</object>
       <object>objects\obj_1_lives</object>
       <object>objects\obj_2_lives</object>
@@ -108,6 +118,12 @@
       <object>objects\obj_asteroids_bounce_section</object>
       <object>objects\obj_wall_bounce</object>
       <object>objects\obj_asteroid_bounce</object>
+      <object>objects\obj_penetrating_shot</object>
+      <object>objects\obj_infinite_penetration</object>
+      <object>objects\obj_quiet_thrusters</object>
+      <object>objects\obj_in_game_powerups</object>
+      <object>objects\obj_reset_on_save</object>
+      <object>objects\obj_reset_hs</object>
     </objects>
   </objects>
   <rooms name="rooms">

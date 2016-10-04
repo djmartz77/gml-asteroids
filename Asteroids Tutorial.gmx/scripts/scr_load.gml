@@ -14,11 +14,13 @@ global.starting_lives = ini_read_real("Preferences", "Lives", 3);
 global.level_cycle = ini_read_real("Preferences", "Level Cycle", 4); //how many levels before the levels repeat
 global.room_bounce = ini_read_real("Preferences", "Room Bounce", true);
 global.asteroid_bounce = ini_read_real("Preferences", "Asteroid Bounce", true);
+global.quiet_thrusters = ini_read_real("Preferences", "Quiet Thrusters", false);
 
 //Read in Power Ups
 global.player_ram = ini_read_real("Power Ups", "Player Ram", false);
-global.piercing_shot = ini_read_real("Power Ups", "Piercing Shot", true);
-global.infinite_piercing_shot = ini_read_real("Power Ups", "Infinite Penetration", false);
+global.penetrating_shot = ini_read_real("Power Ups", "Penetrating Shot", true);
+global.infinite_penetration = ini_read_real("Power Ups", "Infinite Penetration", false);
+global.in_game_powerups = ini_read_real("Power Ups", "In Game Power Ups", false);
 
 scr_save();
 
