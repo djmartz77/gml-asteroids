@@ -52,6 +52,15 @@ switch (obj_options_screen.opt_pos) {
         }
         break;
         
+    case options.room_bounce:
+        //toggle whether asteroids bounce off each other or not
+        if(global.room_bounce) {
+            global.room_bounce = false;
+        } else {
+            global.room_bounce = true;
+        }
+        break;
+
     case options.asteroid_bounce:
         //toggle whether asteroids bounce off each other or not
         if(global.asteroid_bounce) {

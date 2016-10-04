@@ -78,7 +78,8 @@ audio_play_sound(snd_explosion, 10, 0);
 //check number of lives
 if (global.lives &gt; 0){
     global.lives -= 1;
-    instance_create(room_width/2, room_height/2, obj_player);
+    //this alarm spawns a new player after 3 sec
+    obj_spawner.alarm[1] = 180;
 } else {
     instance_create(0,0, obj_game_over);
 }

@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.penetrating_shot == true) {
+            <string>if (global.infinite_penetration == true) {
     image_index = 1;
 } else {
     image_index = 0;

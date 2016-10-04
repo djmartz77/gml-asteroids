@@ -25,31 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Initialize global variables
+            <string>///Start Power-Ups
 /*
-//set game attributes
-script_execute(scr_load);
-global.points = 0;
-global.lives = 2;
-global.level = 0;
-global.level_cycle = 4; //how many levels before the levels repeat
-global.room_bounce = true;
-global.piercing_shot = true;
-global.infinite_piercing_shot = false;
-global.asteroid_bounce = true;
-global.player_ram = true;
-
-//set player attributes
-global.rotation_speed = 2.5;
-global.thrust_power = 0.2;
-global.max_speed = 5;
-global.speed_decay = 0.01;
-global.bullet_speed = global.max_speed * 3;
-
-//set asteroid attributes
-global.asteroid_base_speed = 0.5;
-global.asteroid_base_num = 5;//how many to spawn at the beginning of each level cycle
+placeholder for powerups alarms
 */
+
 
 </string>
           </argument>
