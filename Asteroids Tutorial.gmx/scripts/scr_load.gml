@@ -10,7 +10,7 @@ global.asteroid_base_num = ini_read_real("Asteroid", "Base Number", 5);//how man
 global.max_speed = ini_read_real("Player", "Max Speed", 5);
 
 //Game Preferences
-global.lives = ini_read_real("Preferences", "Lives", 2);
+global.starting_lives = ini_read_real("Preferences", "Lives", 3);
 global.level_cycle = ini_read_real("Preferences", "Level Cycle", 4); //how many levels before the levels repeat
 global.room_bounce = ini_read_real("Preferences", "Room Bounce", true);
 global.asteroid_bounce = ini_read_real("Preferences", "Asteroid Bounce", true);
@@ -31,6 +31,9 @@ global.rotation_speed = 2.5;
 global.thrust_power = 0.2;
 global.speed_decay = 0.01;
 global.bullet_speed = global.max_speed * 3;
+
+//set the number of extra lives
+global.lives = global.starting_lives - 1;
 
 
 

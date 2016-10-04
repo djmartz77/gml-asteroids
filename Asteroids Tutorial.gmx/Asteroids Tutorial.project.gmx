@@ -24,15 +24,42 @@
       <sprite>sprites\spr_options</sprite>
       <sprite>sprites\spr_controls</sprite>
       <sprite>sprites\spr_quit</sprite>
+      <sprites name="Options">
+        <sprite>sprites\spr_on</sprite>
+        <sprite>sprites\spr_off</sprite>
+        <sprite>sprites\spr_lives</sprite>
+        <sprite>sprites\spr_ship_ram</sprite>
+        <sprite>sprites\spr_off_walls</sprite>
+        <sprite>sprites\spr_penetrating_shot</sprite>
+        <sprite>sprites\spr_off_each_other</sprite>
+        <sprite>sprites\spr_infinite_penetration</sprite>
+        <sprite>sprites\spr_level_cycle</sprite>
+        <sprite>sprites\spr_reset_high_score</sprite>
+        <sprite>sprites\spr_asteroids_bounce_section</sprite>
+        <sprite>sprites\spr_powerups</sprite>
+        <sprite>sprites\spr_quiet_thrusters</sprite>
+        <sprite>sprites\spr_reset</sprite>
+        <sprite>sprites\spr_1</sprite>
+        <sprite>sprites\spr_2</sprite>
+        <sprite>sprites\spr_3</sprite>
+        <sprite>sprites\spr_4</sprite>
+        <sprite>sprites\spr_5</sprite>
+        <sprite>sprites\spr_save</sprite>
+        <sprite>sprites\spr_cancel</sprite>
+      </sprites>
     </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bg_options</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_save.gml</script>
     <script>scripts\scr_load.gml</script>
     <script>scripts\scr_menu_select.gml</script>
+    <script>scripts\scr_options_select.gml</script>
     <script>scripts\scr_menu.gml</script>
+    <script>scripts\scr_options.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_small</font>
@@ -60,6 +87,27 @@
     </objects>
     <objects name="Options">
       <object>objects\obj_options_screen</object>
+      <object>objects\obj_wall_bounce_on</object>
+      <object>objects\obj_asteroid_bounce_on</object>
+      <object>objects\obj_wall_bounce_off</object>
+      <object>objects\obj_asteroid_bounce_off</object>
+      <object>objects\obj_1_lives</object>
+      <object>objects\obj_2_lives</object>
+      <object>objects\obj_2_speed_levels</object>
+      <object>objects\obj_3_lives</object>
+      <object>objects\obj_3_speed_levels</object>
+      <object>objects\obj_4_lives</object>
+      <object>objects\obj_4_speed_levels</object>
+      <object>objects\obj_5_lives</object>
+      <object>objects\obj_5_speed_levels</object>
+      <object>objects\obj_lives</object>
+      <object>objects\obj_save</object>
+      <object>objects\obj_cancel</object>
+      <object>objects\obj_powerups</object>
+      <object>objects\obj_level_cycle</object>
+      <object>objects\obj_asteroids_bounce_section</object>
+      <object>objects\obj_wall_bounce</object>
+      <object>objects\obj_asteroid_bounce</object>
     </objects>
   </objects>
   <rooms name="rooms">
