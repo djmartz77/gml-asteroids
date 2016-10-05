@@ -25,13 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>pause = false;
+            <string>///set first powerup appearance if powerups are on
+if(global.in_game_powerups){
+    //first powerup appears at 30-90 seconds into the game
+    alarm[0] = random(60)*60 + 30*60;
+}
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -48,79 +52,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(pause) {
-    draw_set_color(c_black);
-    draw_rectangle(0, 0, room_width, room_height, 0);
-    draw_set_halign(fa_center);
-    draw_set_font(fnt_large);
-    draw_set_color(c_white);
-    draw_set_alpha(1);
-    draw_text(room_width/2, room_height/2 - 25, "GAME PAUSED");
-    draw_set_font(fnt_small);
-    draw_set_color(c_white);
-    draw_set_alpha(1);
-    draw_text(room_width/2, room_height/2 + 25, "Press 'Q' to Quit or 'Esc' to Continue");
-    
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="81">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///save the ini and end the game
-if(pause == true) {
-    script_execute(scr_save);
-    game_end();
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="27">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(pause == false){
-    pause = true;
-    instance_deactivate_all(true);
-    audio_pause_all();
-} else {
-    pause = false;
-    instance_activate_all();
-    audio_resume_all();
-}
+            <string>///spawn the powerup
+var xpos,ypos;
+xpos = irandom(room_width - 64) + 32;
+ypos = irandom(room_height - 64) + 32;
+instance_create(xpos,ypos,obj_pu_ram);
 </string>
           </argument>
         </arguments>
