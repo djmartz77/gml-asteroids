@@ -11,6 +11,7 @@ switch (obj_menu.mpos) {
         
     case menu_options.controls:
         //Display the key bindings
+        room_goto(rm_controls);
         break;
         
     case menu_options.quit:

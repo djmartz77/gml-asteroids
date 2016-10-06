@@ -22,6 +22,7 @@
     <sprite>sprites\spr_dead_asteroid</sprite>
     <sprite>sprites\spr_boundary</sprite>
     <sprite>sprites\spr_menu_arrow</sprite>
+    <sprite>sprites\spr_pu_ram</sprite>
     <sprites name="Menu">
       <sprite>sprites\spr_start</sprite>
       <sprite>sprites\spr_options</sprite>
@@ -52,10 +53,23 @@
         <sprite>sprites\spr_cancel</sprite>
         <sprite>sprites\spr_reset_on_save</sprite>
       </sprites>
+      <sprites name="Controls">
+        <sprite>sprites\spr_up</sprite>
+        <sprite>sprites\spr_left</sprite>
+        <sprite>sprites\spr_right</sprite>
+        <sprite>sprites\spr_esc</sprite>
+        <sprite>sprites\spr_space</sprite>
+        <sprite>sprites\spr_fire_thrusters</sprite>
+        <sprite>sprites\spr_pause_game</sprite>
+        <sprite>sprites\spr_watch_powerups</sprite>
+        <sprite>sprites\spr_fire</sprite>
+        <sprite>sprites\spr_rotate</sprite>
+        <sprite>sprites\spr_ram_asteroids</sprite>
+      </sprites>
     </sprites>
-    <sprite>sprites\spr_pu_ram</sprite>
   </sprites>
   <backgrounds name="background">
+    <background>background\bg_controls</background>
     <background>background\bg_options</background>
   </backgrounds>
   <paths name="paths"/>
@@ -68,6 +82,7 @@
     <script>scripts\scr_options.gml</script>
     <script>scripts\scr_set_powerup_timer.gml</script>
     <script>scripts\scr_end_player_powerups.gml</script>
+    <script>scripts\scr_end_player_powerups_quiet.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_small</font>
@@ -133,12 +148,29 @@
     </objects>
     <object>objects\obj_pu_ram</object>
     <object>objects\obj_powerup_spawner</object>
+    <objects name="Controls">
+      <object>objects\obj_up_arrow</object>
+      <object>objects\obj_left_arrow</object>
+      <object>objects\obj_right_arrow</object>
+      <object>objects\obj_fire_thrusters</object>
+      <object>objects\obj_rotate_ship</object>
+      <object>objects\obj_space</object>
+      <object>objects\obj_fire</object>
+      <object>objects\obj_esc</object>
+      <object>objects\obj_pause_game</object>
+      <object>objects\obj_watch_powerups</object>
+      <object>objects\obj_ram_sprite</object>
+      <object>objects\obj_ram_asteroids</object>
+      <object>objects\object67</object>
+      <object>objects\obj_controls_screen</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_initialize</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_game</room>
     <room>rooms\rm_options</room>
+    <room>rooms\rm_controls</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

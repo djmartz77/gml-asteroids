@@ -67,9 +67,13 @@ alarm[0] = 15 * 60;//disappear after 15 sec
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.player_ram = true;
+            <string>global.power_up = true;
+global.player_ram = true;
+obj_player.image_speed = 0;
 obj_player.sprite_index = spr_player_ram;
+obj_player.image_index = 0;
 obj_player.alarm[1] = 10 * 60;
+obj_player.alarm[2] = 8 * 60;//start the transition image
 
 //play a sound
 audio_play_sound(snd_powerup,0,false);

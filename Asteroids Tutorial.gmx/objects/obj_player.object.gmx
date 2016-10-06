@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///do player spawn invincibility
+global.power_up = false;
 global.player_invincible = true;
 
 image_speed = 1/3;
@@ -83,7 +84,33 @@ if (global.lives &gt; 0){
 } else {
     instance_create(0,0, obj_game_over);
 }
- 
+
+//end any power ups
+scr_end_player_powerups_quiet(); 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///start the power-up end animation
+image_speed = 1/3;
 </string>
           </argument>
         </arguments>
@@ -130,7 +157,9 @@ scr_end_player_powerups();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sprite_index = spr_player;
+            <string>if(!global.power_up){
+    sprite_index = spr_player;
+}
 global.player_invincible = false;
 </string>
           </argument>
@@ -154,7 +183,10 @@ global.player_invincible = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed = max(speed - global.speed_decay, 0);
+            <string>//once you start moving, you can't completely stop
+//this is to prevent screen wrap problems
+speed = max(speed - global.speed_decay, 0.001);
+
 </string>
           </argument>
         </arguments>
@@ -205,7 +237,9 @@ image_angle -= global.rotation_speed;
 motion_add (image_angle, global.thrust_power);
 if (speed &gt; global.max_speed) {
     speed = global.max_speed;
-} 
+} else if (speed = 0) {
+    speed = 0.01;
+}
 
 </string>
           </argument>
