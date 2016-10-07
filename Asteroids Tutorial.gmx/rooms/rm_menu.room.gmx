@@ -12,7 +12,6 @@
   <showcolour>-1</showcolour>
   <code>enum menu_options {
     start,
-    start_2p,
     options,
     controls,
     quit

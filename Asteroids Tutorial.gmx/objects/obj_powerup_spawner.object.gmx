@@ -28,7 +28,8 @@
             <string>///set first powerup appearance if powerups are on
 if(global.in_game_powerups){
     //first powerup appears at 30-90 seconds into the game
-    alarm[0] = random(60)*60 + 30*60;
+    //alarm[0] = random(60)*60 + 30*60;
+    alarm[0] = 60;
 }
 </string>
           </argument>

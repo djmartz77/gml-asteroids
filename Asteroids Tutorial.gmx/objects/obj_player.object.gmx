@@ -25,9 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///do player spawn invincibility
-global.power_up = false;
-global.player_invincible = true;
+            <string>///do player spawn invincibility and global powerups
+power_up = false;
+invincible = true;
+
+player_ram = global.player_ram;
+penetrating_shot = global.penetrating_shot;
+infinite_penetration = global.infinite_penetration;
+persistent_shot = global.persistent_shot;
 
 image_speed = 1/3;
 alarm[0] = 240;
@@ -137,6 +142,9 @@ image_speed = 1/3;
             <kind>1</kind>
             <string>///end any powerups
 scr_end_player_powerups();
+player_ram = false;
+power_up = false;
+sprite_index = spr_player;
 </string>
           </argument>
         </arguments>
@@ -159,10 +167,10 @@ scr_end_player_powerups();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(!global.power_up){
+            <string>if(!power_up){
     sprite_index = spr_player;
 }
-global.player_invincible = false;
+invincible = false;
 </string>
           </argument>
         </arguments>

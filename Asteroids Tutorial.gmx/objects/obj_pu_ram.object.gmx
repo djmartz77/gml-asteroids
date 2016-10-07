@@ -67,22 +67,14 @@ alarm[0] = 15 * 60;//disappear after 15 sec
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.power_up = true;
-global.player_ram = true;
+            <string>other.power_up = true;
+other.player_ram = true;
 
-if(instance_exists(obj_player)){
-    obj_player.image_speed = 0;
-    obj_player.sprite_index = spr_player_ram;
-    obj_player.image_index = 0;
-    obj_player.alarm[1] = 10 * 60;
-    obj_player.alarm[2] = 8 * 60;//start the transition image
-}
-
-obj_player_2.image_speed = 0;
-obj_player_2.sprite_index = spr_player_ram;
-obj_player_2.image_index = 0;
-obj_player_2.alarm[1] = 10 * 60;
-obj_player_2.alarm[2] = 8 * 60;//start the transition image
+other.image_speed = 0;
+other.sprite_index = spr_player_2_ram;
+other.image_index = 0;
+other.alarm[1] = 10 * 60;
+other.alarm[2] = 8 * 60;//start the transition image
 
 //play a sound
 audio_play_sound(snd_powerup,0,false);
@@ -122,22 +114,14 @@ audio_play_sound(snd_powerup,0,false);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.power_up = true;
-global.player_ram = true;
+            <string>other.power_up = true;
+other.player_ram = true;
 
-obj_player.image_speed = 0;
-obj_player.sprite_index = spr_player_ram;
-obj_player.image_index = 0;
-obj_player.alarm[1] = 10 * 60;
-obj_player.alarm[2] = 8 * 60;//start the transition image
-
-if(instance_exists(obj_player_2)){
-    obj_player_2.image_speed = 0;
-    obj_player_2.sprite_index = spr_player_ram;
-    obj_player_2.image_index = 0;
-    obj_player_2.alarm[1] = 10 * 60;
-    obj_player_2.alarm[2] = 8 * 60;//start the transition image
-}
+other.image_speed = 0;
+other.sprite_index = spr_player_ram;
+other.image_index = 0;
+other.alarm[1] = 10 * 60;
+other.alarm[2] = 8 * 60;//start the transition image
 
 //play a sound
 audio_play_sound(snd_powerup,0,false);

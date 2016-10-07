@@ -15,6 +15,7 @@
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_player_2</sprite>
     <sprite>sprites\spr_player_ram</sprite>
+    <sprite>sprites\spr_player_2_ram</sprite>
     <sprite>sprites\spr_player_inv</sprite>
     <sprite>sprites\spr_player_2_inv</sprite>
     <sprite>sprites\spr_bullet</sprite>

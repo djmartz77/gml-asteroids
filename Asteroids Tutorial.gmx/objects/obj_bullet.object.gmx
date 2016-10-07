@@ -26,9 +26,44 @@
           <argument>
             <kind>1</kind>
             <string>///set power-ups
-penetration = false
+penetration = false;
+persistent_shot = false;
+infinite_penetration = false;
+
+//determine who shot the bullet
+if(instance_exists(obj_player) &amp;&amp; instance_exists(obj_player_2)){
+    var distance_to_1 = distance_to_object(obj_player);
+    var distance_to_2 = distance_to_object(obj_player_2);
+    if(distance_to_1 &lt; distance_to_2){
+        shooter = instance_nearest(x,y,obj_player);
+    } else {
+        shooter = instance_nearest(x,y,obj_player_2);
+    }
+} else if(instance_exists(obj_player)) {
+    shooter = instance_nearest(x,y,obj_player);
+} else {
+    shooter = instance_nearest(x,y,obj_player_2);
+}
+
+//penetration
 if(global.penetrating_shot || global.infinite_penetration){
     penetration = true;
+} else {
+    penetration = shooter.penetrating_shot;
+}
+
+//infinite penetration
+if(global.infinite_penetration){
+    infinite_penetration = true;
+} else {
+    infinite_penetration = shooter.infinite_penetration;
+}
+
+//persistent shot
+if(global.persistent_shot){
+    persistent_shot = true;
+} else {
+    persistent_shot = shooter.persistent_shot
 }
 
 alarm[0] = 75;
@@ -79,7 +114,7 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.persistent_shot){
+            <string>if(persistent_shot){
     move_wrap(true, true, sprite_width);
 } else {
     instance_destroy();
