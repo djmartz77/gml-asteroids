@@ -50,6 +50,61 @@ alarm[0] = 15 * 60;//disappear after 15 sec
         <isnot>0</isnot>
       </action>
     </event>
+    <event eventtype="4" ename="obj_player_2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.power_up = true;
+global.player_ram = true;
+
+if(instance_exists(obj_player)){
+    obj_player.image_speed = 0;
+    obj_player.sprite_index = spr_player_ram;
+    obj_player.image_index = 0;
+    obj_player.alarm[1] = 10 * 60;
+    obj_player.alarm[2] = 8 * 60;//start the transition image
+}
+
+obj_player_2.image_speed = 0;
+obj_player_2.sprite_index = spr_player_ram;
+obj_player_2.image_index = 0;
+obj_player_2.alarm[1] = 10 * 60;
+obj_player_2.alarm[2] = 8 * 60;//start the transition image
+
+//play a sound
+audio_play_sound(snd_powerup,0,false);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>203</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_kill_object</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_player">
       <action>
         <libid>1</libid>
@@ -69,11 +124,20 @@ alarm[0] = 15 * 60;//disappear after 15 sec
             <kind>1</kind>
             <string>global.power_up = true;
 global.player_ram = true;
+
 obj_player.image_speed = 0;
 obj_player.sprite_index = spr_player_ram;
 obj_player.image_index = 0;
 obj_player.alarm[1] = 10 * 60;
 obj_player.alarm[2] = 8 * 60;//start the transition image
+
+if(instance_exists(obj_player_2)){
+    obj_player_2.image_speed = 0;
+    obj_player_2.sprite_index = spr_player_ram;
+    obj_player_2.image_index = 0;
+    obj_player_2.alarm[1] = 10 * 60;
+    obj_player_2.alarm[2] = 8 * 60;//start the transition image
+}
 
 //play a sound
 audio_play_sound(snd_powerup,0,false);

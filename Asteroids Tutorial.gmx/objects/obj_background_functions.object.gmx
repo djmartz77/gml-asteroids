@@ -25,7 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Start Power-Ups
+            <string>///Spawn players
+if(global.two_player_mode){
+    instance_create(room_width/4, room_height/2, obj_player_2);
+    instance_create(room_width * 3/4, room_height/2, obj_player);
+} else {
+    instance_create(room_width/2, room_height/2, obj_player);
+}
+
 /*
 placeholder for powerups alarms
 */
@@ -58,7 +65,11 @@ draw_set_halign(fa_left);
 draw_set_font(fnt_small);
 draw_set_colour(c_white);
 draw_text(x,y, "score: " + string(global.points));
-draw_text(x,y + 25, "lives: " + string(global.lives));
+if(global.two_player_mode){
+    draw_text(x,y + 25, "lives: " + string(global.player_2_lives) + " " + string(global.player_1_lives));
+} else {
+    draw_text(x,y + 25, "lives: " + string(global.player_1_lives));
+}
 if(global.points &gt; global.high_score){
     global.high_score = global.points;
     }

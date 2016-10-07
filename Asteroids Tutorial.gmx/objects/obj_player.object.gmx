@@ -77,12 +77,14 @@ audio_stop_sound(snd_thrusters);
 audio_play_sound(snd_explosion, 10, 0);
 
 //check number of lives
-if (global.lives &gt; 0){
-    global.lives -= 1;
+if (global.player_1_lives &gt; 0){
+    global.player_1_lives -= 1;
     //this alarm spawns a new player after 3 sec
     obj_spawner.alarm[1] = 180;
 } else {
-    instance_create(0,0, obj_game_over);
+    if(!global.two_player_mode || (global.two_player_mode &amp;&amp; (global.player_2_lives == 0) &amp;&amp; !instance_exists(obj_player_2))){
+        instance_create(0,0, obj_game_over);
+    }
 }
 
 //end any power ups
@@ -273,30 +275,6 @@ image_angle += global.rotation_speed;
     <event eventtype="7" enumb="0">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Make sure speed isn't 0
-if (speed = 0){
-    speed = 0.1;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>112</id>
         <kind>0</kind>
         <userelative>0</userelative>
@@ -364,6 +342,37 @@ bullet = instance_create(x, y, obj_bullet);
 bullet.direction = image_angle;
 bullet.speed = global.bullet_speed;
 audio_play_sound(snd_shoot, 0, 0);
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="17">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///fire bullet 2P Mode
+if (global.two_player_mode){
+    bullet = instance_create(x, y, obj_bullet);
+    bullet.direction = image_angle;
+    bullet.speed = global.bullet_speed;
+    audio_play_sound(snd_shoot, 0, 0);
+}
 
 
 </string>

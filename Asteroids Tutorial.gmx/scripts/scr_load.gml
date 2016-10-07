@@ -4,7 +4,7 @@ global.high_score = ini_read_real("Scoring", "High Score", 0);
 
 //set asteroid attributes
 global.asteroid_base_speed = ini_read_real("Asteroid", "Base Speed", 0.5);
-global.asteroid_base_num = ini_read_real("Asteroid", "Base Number", 5);//how many to spawn at the beginning of each level cycle
+global.asteroid_base_num = ini_read_real("Asteroid", "Base Number", 6);//how many to spawn at the beginning of each level cycle
 
 //set player attributes
 global.max_speed = ini_read_real("Player", "Max Speed", 5);
@@ -20,6 +20,7 @@ global.quiet_thrusters = ini_read_real("Preferences", "Quiet Thrusters", false);
 global.player_ram = ini_read_real("Power Ups", "Player Ram", false);
 global.penetrating_shot = ini_read_real("Power Ups", "Penetrating Shot", true);
 global.infinite_penetration = ini_read_real("Power Ups", "Infinite Penetration", false);
+global.persistent_shot = ini_read_real("Power Ups", "Persistent Shot", true);
 global.in_game_powerups = ini_read_real("Power Ups", "In Game Power Ups", false);
 
 scr_save();
@@ -28,15 +29,15 @@ scr_save();
 global.points = 0;
 global.level = 0;
 
+//default to 1p mode
+global.two_player_mode = false;
+
+
 //set player attributes
 global.rotation_speed = 2.5;
 global.thrust_power = 0.2;
 global.speed_decay = 0.01;
 global.bullet_speed = global.max_speed * 3;
-
-//set the number of extra lives
-global.lives = global.starting_lives - 1;
-
 
 
 

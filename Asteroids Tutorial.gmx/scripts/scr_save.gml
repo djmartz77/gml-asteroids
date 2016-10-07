@@ -17,6 +17,7 @@ ini_write_real("Preferences", "Quiet Thrusters", global.quiet_thrusters);
 ini_write_real("Power Ups", "Player Ram", global.player_ram);
 ini_write_real("Power Ups", "Piercing Shot", global.penetrating_shot);
 ini_write_real("Power Ups", "Infinite Penetration", global.infinite_penetration);
+ini_write_real("Power Ups", "Persistent Shot", global.persistent_shot);
 ini_write_real("Power Ups", "In Game Power Ups", global.in_game_powerups);
 
 //reset the number of extra lives in case it changed
