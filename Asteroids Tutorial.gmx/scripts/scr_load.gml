@@ -28,16 +28,16 @@ scr_save();
 //Set values not in the ini file
 global.points = 0;
 global.level = 0;
-
-//default to 1p mode
-global.two_player_mode = false;
-
-
-//set player attributes
+global.asteroid_rotation = 0.3;
 global.rotation_speed = 2.5;
 global.thrust_power = 0.2;
 global.speed_decay = 0.01;
 global.bullet_speed = global.max_speed * 3;
+global.friendly_fire = false;
+
+//default to 1p mode
+global.two_player_mode = false;
+
 
 
 

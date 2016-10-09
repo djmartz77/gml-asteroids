@@ -68,7 +68,7 @@ alarm[0] = 15 * 60;//disappear after 15 sec
           <argument>
             <kind>1</kind>
             <string>other.power_up = true;
-other.player_ram = true;
+other.state = state.ram;
 
 other.image_speed = 0;
 other.sprite_index = spr_player_2_ram;
@@ -115,7 +115,7 @@ audio_play_sound(snd_powerup,0,false);
           <argument>
             <kind>1</kind>
             <string>other.power_up = true;
-other.player_ram = true;
+other.state = state.ram;
 
 other.image_speed = 0;
 other.sprite_index = spr_player_ram;

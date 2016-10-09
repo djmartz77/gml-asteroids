@@ -6,10 +6,13 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\snd_shoot</sound>
+    <sound>sound\snd_enemy_shoot</sound>
     <sound>sound\snd_explosion</sound>
     <sound>sound\snd_thrusters</sound>
     <sound>sound\snd_powerup</sound>
     <sound>sound\snd_pu_over</sound>
+    <sound>sound\snd_laser_beam</sound>
+    <sound>sound\snd_enemy_ship</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_player</sprite>
@@ -23,9 +26,11 @@
     <sprite>sprites\spr_asteroid_s</sprite>
     <sprite>sprites\spr_dead_player</sprite>
     <sprite>sprites\spr_dead_asteroid</sprite>
+    <sprite>sprites\spr_dead_enemy</sprite>
     <sprite>sprites\spr_boundary</sprite>
     <sprite>sprites\spr_menu_arrow</sprite>
     <sprite>sprites\spr_pu_ram</sprite>
+    <sprite>sprites\spr_pu_laser</sprite>
     <sprites name="Menu">
       <sprite>sprites\spr_1p</sprite>
       <sprite>sprites\spr_2p</sprite>
@@ -62,16 +67,27 @@
         <sprite>sprites\spr_up</sprite>
         <sprite>sprites\spr_left</sprite>
         <sprite>sprites\spr_right</sprite>
+        <sprite>sprites\spr_w</sprite>
+        <sprite>sprites\spr_a</sprite>
+        <sprite>sprites\spr_d</sprite>
+        <sprite>sprites\spr_ctrl</sprite>
+        <sprite>sprites\spr_shift</sprite>
         <sprite>sprites\spr_esc</sprite>
         <sprite>sprites\spr_space</sprite>
         <sprite>sprites\spr_fire_thrusters</sprite>
+        <sprite>sprites\spr_player_1_text</sprite>
+        <sprite>sprites\spr_player_2_text</sprite>
         <sprite>sprites\spr_pause_game</sprite>
         <sprite>sprites\spr_watch_powerups</sprite>
         <sprite>sprites\spr_fire</sprite>
+        <sprite>sprites\spr_dual_fire</sprite>
         <sprite>sprites\spr_rotate</sprite>
         <sprite>sprites\spr_ram_asteroids</sprite>
       </sprites>
     </sprites>
+    <sprite>sprites\spr_enemy</sprite>
+    <sprite>sprites\spr_enemy_bullet</sprite>
+    <sprite>sprites\spr_laser</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_controls</background>
@@ -88,6 +104,9 @@
     <script>scripts\scr_set_powerup_timer.gml</script>
     <script>scripts\scr_end_player_powerups.gml</script>
     <script>scripts\scr_end_player_powerups_quiet.gml</script>
+    <script>scripts\scr_start_laser.gml</script>
+    <script>scripts\scr_stop_laser.gml</script>
+    <script>scripts\scr_do_player_state.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_small</font>
@@ -104,6 +123,7 @@
     <object>objects\obj_spawner</object>
     <object>objects\obj_dead_player</object>
     <object>objects\obj_dead_asteroid</object>
+    <object>objects\obj_dead_enemy</object>
     <object>objects\obj_game_over</object>
     <object>objects\obj_boundary</object>
     <object>objects\obj_pause</object>
@@ -155,6 +175,7 @@
       <object>objects\obj_reset_hs</object>
     </objects>
     <object>objects\obj_pu_ram</object>
+    <object>objects\obj_pu_laser</object>
     <object>objects\obj_powerup_spawner</object>
     <objects name="Controls">
       <object>objects\obj_up_arrow</object>
@@ -171,7 +192,19 @@
       <object>objects\obj_ram_asteroids</object>
       <object>objects\object67</object>
       <object>objects\obj_controls_screen</object>
+      <object>objects\obj_w</object>
+      <object>objects\obj_a</object>
+      <object>objects\obj_d</object>
+      <object>objects\obj_ctrl</object>
+      <object>objects\obj_shift</object>
+      <object>objects\obj_player_1_text</object>
+      <object>objects\obj_player_2_text</object>
+      <object>objects\obj_dual_fire</object>
     </objects>
+    <object>objects\obj_enemy</object>
+    <object>objects\obj_enemy_bullet</object>
+    <object>objects\obj_enemy_spawner</object>
+    <object>objects\obj_laser</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_initialize</room>

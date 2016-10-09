@@ -60,7 +60,8 @@ placeholder for powerups alarms
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_valign(fa_top);
+            <string>draw_set_alpha(1);
+draw_set_valign(fa_top);
 draw_set_halign(fa_left);
 draw_set_font(fnt_small);
 draw_set_colour(c_white);
@@ -76,6 +77,13 @@ if(global.points &gt; global.high_score){
     
 draw_text(room_width/2 - 100, y, "High Score: " + string(global.high_score));
 draw_text(room_width - 140, y, "Level: " + string(global.level));
+
+if(instance_exists(obj_laser)){
+    draw_set_alpha(1);
+    draw_text(20, room_height - 105, "Laser Power");
+    draw_set_alpha(0.75);
+    draw_healthbar(20, room_height - 80, 200, room_height-60, obj_laser.laser_power, c_black, c_white, c_white,0 , true, true)
+}
 
 </string>
           </argument>

@@ -29,6 +29,8 @@
 penetration = false;
 persistent_shot = false;
 infinite_penetration = false;
+player_1_bullet = false;
+player_2_bullet = false;
 
 //determine who shot the bullet
 if(instance_exists(obj_player) &amp;&amp; instance_exists(obj_player_2)){
@@ -36,13 +38,19 @@ if(instance_exists(obj_player) &amp;&amp; instance_exists(obj_player_2)){
     var distance_to_2 = distance_to_object(obj_player_2);
     if(distance_to_1 &lt; distance_to_2){
         shooter = instance_nearest(x,y,obj_player);
+        player_1_bullet = true;
     } else {
         shooter = instance_nearest(x,y,obj_player_2);
+        player_2_bullet = true;
+
     }
 } else if(instance_exists(obj_player)) {
     shooter = instance_nearest(x,y,obj_player);
+    player_1_bullet = true;
+
 } else {
     shooter = instance_nearest(x,y,obj_player_2);
+    player_2_bullet = true;
 }
 
 //penetration
@@ -66,7 +74,7 @@ if(global.persistent_shot){
     persistent_shot = shooter.persistent_shot
 }
 
-alarm[0] = 75;
+alarm[0] = 65;
 </string>
           </argument>
         </arguments>
@@ -92,6 +100,56 @@ alarm[0] = 75;
             <string>///Destroy the bullet if it's still around
 instance_destroy();
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_player_2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(player_1_bullet &amp;&amp; !global.friendly_fire){
+    move_bounce_all(false);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_player">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(player_2_bullet &amp;&amp; !global.friendly_fire){
+    move_bounce_all(false);
+}
 </string>
           </argument>
         </arguments>

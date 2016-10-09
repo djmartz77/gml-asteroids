@@ -52,8 +52,11 @@ instance_create(room_width/4, room_height/2, obj_player_2);
           <argument>
             <kind>1</kind>
             <string>///spawn a new player
-instance_create(room_width * 3/4, room_height/2, obj_player);
-
+if(global.two_player_mode) {
+    instance_create(room_width * 3/4, room_height/2, obj_player);
+} else {
+    instance_create(room_width/2, room_height/2, obj_player);
+}
 </string>
           </argument>
         </arguments>
@@ -87,6 +90,10 @@ if (!instance_exists(obj_asteroid)) {
         }
         instance_create(edge_offset + random(room_width - 2*edge_offset), edge_offset + random(room_height - 2*edge_offset), obj_asteroid);
     }
+}
+
+if (global.level == (2*global.level_cycle+1)){
+  obj_enemy_spawner.alarm[1] = (irandom(30) + 15) * 60; 
 }
 </string>
           </argument>

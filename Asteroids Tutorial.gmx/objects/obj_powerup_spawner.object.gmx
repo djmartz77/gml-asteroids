@@ -29,7 +29,11 @@
 if(global.in_game_powerups){
     //first powerup appears at 30-90 seconds into the game
     //alarm[0] = random(60)*60 + 30*60;
-    alarm[0] = 60;
+    alarm[0] = 180;
+    
+    if(global.two_player_mode) {
+        alarm[0] = alarm[0] / 2;
+    }
 }
 </string>
           </argument>
@@ -54,10 +58,25 @@ if(global.in_game_powerups){
           <argument>
             <kind>1</kind>
             <string>///spawn the powerup
-var xpos,ypos;
+var xpos,ypos,pu_type;
 xpos = irandom(room_width - 64) + 32;
 ypos = irandom(room_height - 64) + 32;
-instance_create(xpos,ypos,obj_pu_ram);
+
+pu_type = irandom(2);
+switch(pu_type){
+    case 1:
+        instance_create(xpos,ypos,obj_pu_ram);
+        break;
+    
+    case 2:
+        instance_create(xpos,ypos,obj_pu_laser);
+        break;
+    
+    default:
+    //do nothing
+}
+
+
 </string>
           </argument>
         </arguments>
