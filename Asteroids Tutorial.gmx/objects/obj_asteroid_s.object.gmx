@@ -153,7 +153,7 @@ image_angle += rotation_speed;
             <kind>1</kind>
             <string>///score the shot
 if(other.visible){
-    global.points += self.points;
+    scr_add_points(self.points);
     instance_destroy()
 }
 
@@ -180,7 +180,7 @@ if(other.visible){
           <argument>
             <kind>1</kind>
             <string>///score the shot
-global.points += self.points;
+scr_add_points(self.points);
 
 
 </string>
@@ -253,7 +253,7 @@ if (!other.invincible){
     instance_destroy();
     //score a ram
     if (other.state == state.ram){
-        global.points += self.points;
+        scr_add_points(self.points);
     }
 }
 
@@ -311,7 +311,7 @@ if (!other.invincible){
     instance_destroy();
     //score a ram
     if (other.state == state.ram){
-        global.points += self.points;
+        scr_add_points(self.points);
     }
 }
 

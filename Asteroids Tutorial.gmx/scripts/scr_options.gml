@@ -33,6 +33,17 @@ switch (obj_options_screen.opt_pos) {
             global.in_game_powerups = true;
         }
         break;
+    
+    case options.persistent_shot:
+        //toggle whether the player's shots persist for a period of time
+        //instead of stopping at the edge of the screen
+        if(global.persistent_shot) {
+            global.persistent_shot = false;
+        } else {
+            global.persistent_shot = true;
+        }
+        break;
+    
         
     case options.penetrating_shot:
         //toggle whether the player's shots penetrate a small asteroid

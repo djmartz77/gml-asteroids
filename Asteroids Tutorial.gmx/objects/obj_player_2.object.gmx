@@ -29,8 +29,8 @@
 
 self.state = state.normal;
 
-player1 = true;
-player2 = false;
+player1 = false;
+player2 = true;
 
 power_up = false;
 invincible = true;
@@ -150,6 +150,8 @@ image_speed = 1/3;
             <string>///end any powerups
 scr_end_player_powerups();
 self.state = state.normal;
+scr_do_player_state();
+
 power_up = false;
 sprite_index = spr_player_2;
 </string>
@@ -200,9 +202,14 @@ invincible = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//once you start moving, you can't completely stop
-//this is to prevent screen wrap problems
-speed = max(speed - global.speed_decay, 0.001);
+            <string>///Speed decay and movement script
+if((abs(speed)-global.speed_decay) &gt;= 0){
+    speed = sign(speed)*(abs(speed) - global.speed_decay);
+} else {
+    speed = 0;
+}
+
+scr_move_player();
 
 </string>
           </argument>
@@ -230,10 +237,7 @@ speed = max(speed - global.speed_decay, 0.001);
 motion_add (image_angle, global.thrust_power);
 if (speed &gt; global.max_speed) {
     speed = global.max_speed;
-} else if (speed = 0) {
-    speed = 0.01;
 }
-
 </string>
           </argument>
         </arguments>
@@ -333,28 +337,6 @@ image_angle += global.rotation_speed;
     scr_start_laser();
 }
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>112</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_wrap</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>4</kind>
-            <string>2</string>
           </argument>
         </arguments>
       </action>

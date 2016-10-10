@@ -34,6 +34,7 @@ global.thrust_power = 0.2;
 global.speed_decay = 0.01;
 global.bullet_speed = global.max_speed * 3;
 global.friendly_fire = false;
+global.extra_life_points = 1000;
 
 //default to 1p mode
 global.two_player_mode = false;

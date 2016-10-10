@@ -29,7 +29,7 @@
 image_angle = direction;
 points = 50;
 audio_play_sound(snd_enemy_ship, 0, true);
-
+no_explosion = false;
 </string>
           </argument>
         </arguments>
@@ -53,7 +53,8 @@ audio_play_sound(snd_enemy_ship, 0, true);
           <argument>
             <kind>1</kind>
             <string>///set next enemy spawn
-obj_enemy_spawner.alarm[0] = (irandom(30) + 15) * 60; 
+scr_set_enemy_spawn();
+//obj_enemy_spawner.alarm[0] = (irandom(30) + 15) * 60; 
 //obj_enemy_spawner.alarm[0] = 180; 
 </string>
           </argument>
@@ -75,27 +76,31 @@ obj_enemy_spawner.alarm[0] = (irandom(30) + 15) * 60;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///explode
+            <string>///explode if shot
 
 //make the particles
-var o;
-var i;
-var num_particles = irandom(3) + 4;
-var angle_offset = 360/num_particles;
-
-for (i = 0; i &lt; num_particles; i+=1){
-    o = instance_create(x, y, obj_dead_enemy);
-    o.angle = (i * angle_offset) + random(angle_offset * 1.5);
+if(!no_explosion){
+    var o;
+    var i;
+    var num_particles = irandom(3) + 4;
+    var angle_offset = 360/num_particles;
+    
+    for (i = 0; i &lt; num_particles; i+=1){
+        o = instance_create(x, y, obj_dead_enemy);
+        o.angle = (i * angle_offset) + random(angle_offset * 1.5);
+    }
+    
+    with (obj_dead_enemy){
+        direction = angle;
+        image_angle = angle;
+        speed = 3;
+    }
+    
+    audio_play_sound(snd_explosion, 0, 0);
 }
 
-with (obj_dead_enemy){
-    direction = angle;
-    image_angle = angle;
-    speed = 3;
-}
-
-audio_play_sound(snd_explosion, 0, 0);
 audio_stop_sound(snd_enemy_ship);
+
 </string>
           </argument>
         </arguments>
@@ -173,8 +178,8 @@ alarm[0] = random(3) * 10 + 10;
             <kind>1</kind>
             <string>///score the shot
 if(other.visible){
-    global.points += self.points;
-    instance_destroy()
+    scr_add_points(self.points);
+    instance_destroy();
 }
 
 </string>
@@ -200,7 +205,7 @@ if(other.visible){
           <argument>
             <kind>1</kind>
             <string>///score the shot
-global.points += self.points;
+scr_add_points(self.points);
 
 
 </string>
@@ -246,7 +251,145 @@ if(!global.infinite_penetration &amp;&amp; !infinite_penetration){
         <isnot>0</isnot>
       </action>
     </event>
+    <event eventtype="4" ename="obj_player_2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///destroy the enemy unless invincible
+if (!other.invincible){
+    instance_destroy();
+    //score a ram
+    if (other.state == state.ram){
+        scr_add_points(self.points);
+    }
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>other</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///destroy the player unless invinvible or ramming
+if (!self.invincible){
+    if(self.state != state.ram){
+        instance_destroy();
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_player">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///destroy the enemy unless invincible
+if (!other.invincible){
+    instance_destroy();
+    //score a ram
+    if (other.state == state.ram){
+        scr_add_points(self.points);
+    }
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>other</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///destroy the player unless invinvible or ramming
+if (!self.invincible){
+    if(self.state != state.ram){
+        instance_destroy();
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///If we made it across the screen, we should't explode
+no_explosion = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>203</id>

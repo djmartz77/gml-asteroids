@@ -10,6 +10,7 @@
     <sound>sound\snd_explosion</sound>
     <sound>sound\snd_thrusters</sound>
     <sound>sound\snd_powerup</sound>
+    <sound>sound\snd_extra_life</sound>
     <sound>sound\snd_pu_over</sound>
     <sound>sound\snd_laser_beam</sound>
     <sound>sound\snd_enemy_ship</sound>
@@ -29,6 +30,7 @@
     <sprite>sprites\spr_dead_enemy</sprite>
     <sprite>sprites\spr_boundary</sprite>
     <sprite>sprites\spr_menu_arrow</sprite>
+    <sprite>sprites\spr_1up</sprite>
     <sprite>sprites\spr_pu_ram</sprite>
     <sprite>sprites\spr_pu_laser</sprite>
     <sprites name="Menu">
@@ -44,6 +46,7 @@
         <sprite>sprites\spr_lives</sprite>
         <sprite>sprites\spr_ship_ram</sprite>
         <sprite>sprites\spr_off_walls</sprite>
+        <sprite>sprites\spr_persistent_shot</sprite>
         <sprite>sprites\spr_quiet_thrusters</sprite>
         <sprite>sprites\spr_penetrating_shot</sprite>
         <sprite>sprites\spr_off_each_other</sprite>
@@ -83,6 +86,8 @@
         <sprite>sprites\spr_dual_fire</sprite>
         <sprite>sprites\spr_rotate</sprite>
         <sprite>sprites\spr_ram_asteroids</sprite>
+        <sprite>sprites\spr_extra_life</sprite>
+        <sprite>sprites\spr_friggin_laser</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\spr_enemy</sprite>
@@ -107,6 +112,11 @@
     <script>scripts\scr_start_laser.gml</script>
     <script>scripts\scr_stop_laser.gml</script>
     <script>scripts\scr_do_player_state.gml</script>
+    <script>scripts\scr_spawn_enemy.gml</script>
+    <script>scripts\scr_set_enemy_spawn.gml</script>
+    <script>scripts\scr_set_second_enemy_spawn.gml</script>
+    <script>scripts\scr_move_player.gml</script>
+    <script>scripts\scr_add_points.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_small</font>
@@ -141,6 +151,7 @@
       <object>objects\obj_wall_bounce_on</object>
       <object>objects\obj_inf_pen_on</object>
       <object>objects\obj_in_game_pow_on</object>
+      <object>objects\obj_pers_shot_on</object>
       <object>objects\obj_pen_shot_on</object>
       <object>objects\obj_quiet_thrusters_on</object>
       <object>objects\obj_asteroid_bounce_on</object>
@@ -148,6 +159,7 @@
       <object>objects\obj_inf_pen_off</object>
       <object>objects\obj_quiet_thrusters_off</object>
       <object>objects\obj_in_game_pow_off</object>
+      <object>objects\obj_pers_shot_off</object>
       <object>objects\obj_pen_shot_off</object>
       <object>objects\obj_asteroid_bounce_off</object>
       <object>objects\obj_1_lives</object>
@@ -173,8 +185,10 @@
       <object>objects\obj_in_game_powerups</object>
       <object>objects\obj_reset_on_save</object>
       <object>objects\obj_reset_hs</object>
+      <object>objects\obj_persistent_shot</object>
     </objects>
     <object>objects\obj_pu_ram</object>
+    <object>objects\obj_extra_life</object>
     <object>objects\obj_pu_laser</object>
     <object>objects\obj_powerup_spawner</object>
     <objects name="Controls">
@@ -189,8 +203,11 @@
       <object>objects\obj_pause_game</object>
       <object>objects\obj_watch_powerups</object>
       <object>objects\obj_ram_sprite</object>
-      <object>objects\obj_ram_asteroids</object>
-      <object>objects\object67</object>
+      <object>objects\obj_laser_sprite</object>
+      <object>objects\obj_1up_sprite</object>
+      <object>objects\obj_ram_asteroids_txt</object>
+      <object>objects\obj_extra_life_txt</object>
+      <object>objects\obj_friggin_laser_txt</object>
       <object>objects\obj_controls_screen</object>
       <object>objects\obj_w</object>
       <object>objects\obj_a</object>

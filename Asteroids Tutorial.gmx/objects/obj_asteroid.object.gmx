@@ -36,7 +36,7 @@ rotation_speed = rotation_speed * speed;
 direction = random(360);
 
 var edge_offset = sprite_get_width(spr_asteroid)/2;
-while ((distance_to_object(obj_player) &lt; 100) || place_meeting(x,y,obj_asteroid)){
+while (((distance_to_object(obj_player) &lt; 100) &amp;&amp; (distance_to_object(obj_player_2) &lt; 100)) || place_meeting(x,y,obj_asteroid)){
     x = edge_offset + random(room_width - 2*edge_offset);
     y = edge_offset + random(room_height - 2*edge_offset);
 }
@@ -158,7 +158,7 @@ image_angle += rotation_speed;
             <kind>1</kind>
             <string>///score the shot
 if(other.visible){
-    global.points += self.points;
+    scr_add_points(self.points);
     instance_destroy()
 }
 
@@ -240,7 +240,7 @@ if(global.asteroid_bounce){
           <argument>
             <kind>1</kind>
             <string>///score the shot
-global.points += self.points;
+scr_add_points(self.points);
 
 
 </string>
@@ -308,7 +308,7 @@ if (!other.invincible){
     instance_destroy();
     //score a ram
     if (other.state == state.ram){
-        global.points += self.points;
+        scr_add_points(self.points);
     }
 }
 
@@ -366,7 +366,7 @@ if (!other.invincible){
     instance_destroy();
     //score a ram
     if (other.state == state.ram){
-        global.points += self.points;
+        scr_add_points(self.points);
     }
 }
 

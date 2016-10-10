@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>///set the next powerup timer
 scr_set_powerup_timer()
+
 alarm[0] = 15 * 60;//disappear after 15 sec
 
 </string>

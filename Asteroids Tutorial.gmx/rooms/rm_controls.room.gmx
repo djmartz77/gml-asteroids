@@ -63,7 +63,7 @@
     <instance objName="obj_pause_game" x="512" y="478" name="inst_F57E70A5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_watch_powerups" x="224" y="657" name="inst_ACFB0F3A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ram_sprite" x="480" y="580" name="inst_5D7F7C25" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ram_asteroids" x="616" y="562" name="inst_9DA1B26B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ram_asteroids_txt" x="616" y="562" name="inst_9DA1B26B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_dual_fire" x="512" y="402" name="inst_B290B197" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_esc" x="667" y="463" name="inst_E44A4B4E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player_1_text" x="155" y="196" name="inst_B22DE86B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -74,6 +74,10 @@
     <instance objName="obj_ctrl" x="96" y="333" name="inst_9E8A979B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_shift" x="813" y="333" name="inst_B7C4963D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_space" x="780" y="388" name="inst_6684DD6E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_friggin_laser_txt" x="616" y="640" name="inst_1B0BA6FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_laser_sprite" x="480" y="644" name="inst_DE843C8A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_1up_sprite" x="460" y="700" name="inst_9DFE4E73" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_extra_life_txt" x="608" y="684" name="inst_D2E2F9A2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

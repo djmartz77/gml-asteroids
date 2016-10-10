@@ -71,12 +71,15 @@ var o;
 
 o = instance_create(x, y, obj_dead_player);
 o.angle = 0 + random_angle;
+o.image_index = 0;
 
 o = instance_create(x, y, obj_dead_player);
 o.angle = 120 + random_angle;
+o.image_index = 0;
 
 o = instance_create(x, y, obj_dead_player);
 o.angle = 240 + random_angle;
+o.image_index = 1;
 
 with (obj_dead_player) {
     direction = angle;
@@ -203,9 +206,14 @@ invincible = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//once you start moving, you can't completely stop
-//this is to prevent screen wrap problems
-speed = max(speed - global.speed_decay, 0.001);
+            <string>///Speed decay and movement script
+if((abs(speed)-global.speed_decay) &gt;= 0){
+    speed = sign(speed)*(abs(speed) - global.speed_decay);
+} else {
+    speed = 0;
+}
+
+scr_move_player();
 
 </string>
           </argument>
@@ -257,8 +265,6 @@ image_angle -= global.rotation_speed;
 motion_add (image_angle, global.thrust_power);
 if (speed &gt; global.max_speed) {
     speed = global.max_speed;
-} else if (speed = 0) {
-    speed = 0.01;
 }
 
 </string>
@@ -340,28 +346,6 @@ image_angle += global.rotation_speed;
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>112</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_wrap</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>4</kind>
-            <string>2</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="9" enumb="38">
       <action>
         <libid>1</libid>
@@ -405,7 +389,7 @@ if(!global.quiet_thrusters){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///fire bullet
+            <string>///fire based on state
 if (self.state == state.normal){
     bullet = instance_create(x, y, obj_bullet);
     bullet.direction = image_angle;
