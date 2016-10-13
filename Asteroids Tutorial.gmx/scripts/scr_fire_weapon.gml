@@ -1,19 +1,19 @@
-switch(self.state ){
+/*
+The intent here is to have state based weapon fire. This will likely involve:
+1)creating an enum called weapon that has all the weapons in it
+2)creating a player var called weapon that holds the enumerated weapon value in it
+3)moving all the laser stuff out of the current scr_do_player_state script
+4)updating or replacing all of the player action scripts related to shooting weapons
+5)testing testing testing
+*/
+
+/*switch(self.weapon ){
     
-    case state.invincible:
-        if(self.player1){
-            sprite_index = spr_player_inv;
-        } else if(self.player2){
-            sprite_index = spr_player_2_inv;
-        } else {
-            //This should never happen
-        }
-        image_speed = 1/3;
-        alarm[0] = 240;
+    case weapon.unarmed
+
     break;
 
-    case state.normal:
-        invincible = false;
+    case weapon.normal:
         if(instance_exists(obj_laser)){
             with(obj_laser){
                 if(self.shooter == other){
@@ -44,31 +44,11 @@ switch(self.state ){
                  
         break;
     
-    case state.laser:
+    case weapon.laser:
         //Detect if this is player 1 or player 2 and set the sprite back to normal accordingly
         scr_start_laser();
         scr_stop_laser();        
         audio_play_sound(snd_powerup,0,false);
-        break;
-    
-    case state.ram:
-        //change to the ram sprite and set the powerup timer
-        image_speed = 0;
-        sprite_index = spr_player_ram;
-        image_index = 0;
-        alarm[1] = 10 * 60;
-        alarm[2] = 8 * 60;//start the transition image
-        //play a sound
-        audio_play_sound(snd_powerup,0,false);
-        break;
-    
-    case state.penetrating:
-        break;
-    
-    case state.infinite_penetration:
-        break;    
-    
-    case state.persistent_shot:
         break;
     
     default:

@@ -22,7 +22,7 @@
     
     if (y < -2) {
         y = room_height;
-    } else if(y > room_height + 2){
+    } else if(y > room_height){
         y = 0;
     }
     

@@ -110,58 +110,6 @@ if(place_meeting(x,y,obj_asteroid)){
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///rotate the asteroid
-image_angle += rotation_speed;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_laser">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///score the shot
-if(other.visible){
-    scr_add_points(self.points);
-    instance_destroy()
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_bullet">
       <action>
         <libid>1</libid>
@@ -203,14 +151,13 @@ scr_add_points(self.points);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///destroy the bullet unless penetrating
-if(!penetration){
+            <string>///destroy the bullet unless infinite penetration
+if(self.infinite_penetration || self.penetration){
+    if(penetration){
+        penetration = false;
+    }
+} else {
     instance_destroy();
-}
-
-//you can only pierce one asteroid
-if(global.penetrating_shot &amp;&amp; (!global.infinite_penetration)) {
-    penetration = false;
 }
 </string>
           </argument>
@@ -229,122 +176,6 @@ if(global.penetrating_shot &amp;&amp; (!global.infinite_penetration)) {
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_player_2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///destroy the asteroid unless invincible
-if (!other.invincible){
-    instance_destroy();
-    //score a ram
-    if (other.state == state.ram){
-        scr_add_points(self.points);
-    }
-}
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>other</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///destroy the player unless invinvible or ramming
-if (!self.invincible){
-    if(!self.state == state.ram){
-        instance_destroy();
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_player">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///destroy the asteroid unless invincible
-if (!other.invincible){
-    instance_destroy();
-    //score a ram
-    if (other.state == state.ram){
-        scr_add_points(self.points);
-    }
-}
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>other</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///destroy the player unless invinvible or ramming
-if (!self.invincible){
-    if(!self.state == state.ram){
-        instance_destroy();
-    }
-}
-</string>
-          </argument>
-        </arguments>
       </action>
     </event>
   </events>

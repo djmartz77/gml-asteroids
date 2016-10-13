@@ -34,9 +34,13 @@ rotation_speed = random(global.asteroid_rotation)-global.asteroid_rotation/2;
 rotation_speed = rotation_speed * speed;
 
 direction = random(360);
+var player_safe_zone = 150 + global.level * 15;
+if(player_safe_zone &gt; 300){
+    player_safe_zone = 300;
+}
 
 var edge_offset = sprite_get_width(spr_asteroid)/2;
-while (((distance_to_object(obj_player) &lt; 100) &amp;&amp; (distance_to_object(obj_player_2) &lt; 100)) || place_meeting(x,y,obj_asteroid)){
+while (((distance_to_object(obj_player) &lt; player_safe_zone) &amp;&amp; (distance_to_object(obj_player_2) &lt; player_safe_zone)) || place_meeting(x,y,obj_asteroid)){
     x = edge_offset + random(room_width - 2*edge_offset);
     y = edge_offset + random(room_height - 2*edge_offset);
 }
@@ -132,8 +136,9 @@ audio_play_sound(snd_explosion, 0, 0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///rotate the asteroid
+            <string>///rotate the asteroid and wrap
 image_angle += rotation_speed;
+scr_move_wrap();
 </string>
           </argument>
         </arguments>
@@ -304,7 +309,7 @@ if(!global.infinite_penetration &amp;&amp; !infinite_penetration){
           <argument>
             <kind>1</kind>
             <string>///destroy the asteroid unless invincible
-if (!other.invincible){
+if (other.state != state.invincible){
     instance_destroy();
     //score a ram
     if (other.state == state.ram){
@@ -334,10 +339,8 @@ if (!other.invincible){
           <argument>
             <kind>1</kind>
             <string>///destroy the player unless invinvible or ramming
-if (!self.invincible){
-    if(self.state != state.ram){
-        instance_destroy();
-    }
+if (self.state != state.invincible &amp;&amp; self.state != state.ram){
+    instance_destroy();
 }
 </string>
           </argument>
@@ -362,7 +365,7 @@ if (!self.invincible){
           <argument>
             <kind>1</kind>
             <string>///destroy the asteroid unless invincible
-if (!other.invincible){
+if (other.state != state.invincible){
     instance_destroy();
     //score a ram
     if (other.state == state.ram){
@@ -392,36 +395,9 @@ if (!other.invincible){
           <argument>
             <kind>1</kind>
             <string>///destroy the player unless invinvible or ramming
-if (!self.invincible){
-    if(self.state != state.ram){
-        instance_destroy();
-    }
+if (self.state != state.invincible &amp;&amp; self.state != state.ram){
+    instance_destroy();
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///wrap
-move_wrap(true, true, sprite_width);
-
 </string>
           </argument>
         </arguments>

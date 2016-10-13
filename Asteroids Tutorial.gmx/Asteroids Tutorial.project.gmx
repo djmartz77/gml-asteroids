@@ -108,14 +108,13 @@
     <script>scripts\scr_options.gml</script>
     <script>scripts\scr_set_powerup_timer.gml</script>
     <script>scripts\scr_end_player_powerups.gml</script>
-    <script>scripts\scr_end_player_powerups_quiet.gml</script>
     <script>scripts\scr_start_laser.gml</script>
     <script>scripts\scr_stop_laser.gml</script>
     <script>scripts\scr_do_player_state.gml</script>
+    <script>scripts\scr_fire_weapon.gml</script>
     <script>scripts\scr_spawn_enemy.gml</script>
     <script>scripts\scr_set_enemy_spawn.gml</script>
-    <script>scripts\scr_set_second_enemy_spawn.gml</script>
-    <script>scripts\scr_move_player.gml</script>
+    <script>scripts\scr_move_wrap.gml</script>
     <script>scripts\scr_add_points.gml</script>
   </scripts>
   <fonts name="fonts">

@@ -21,7 +21,7 @@ global.player_ram = ini_read_real("Power Ups", "Player Ram", false);
 global.penetrating_shot = ini_read_real("Power Ups", "Penetrating Shot", true);
 global.infinite_penetration = ini_read_real("Power Ups", "Infinite Penetration", false);
 global.persistent_shot = ini_read_real("Power Ups", "Persistent Shot", true);
-global.in_game_powerups = ini_read_real("Power Ups", "In Game Power Ups", false);
+global.in_game_powerups = ini_read_real("Power Ups", "In Game Power Ups", true);
 
 scr_save();
 

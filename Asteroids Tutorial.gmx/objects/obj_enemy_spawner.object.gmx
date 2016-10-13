@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
+    <event eventtype="2" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,12 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///set first enemy spawn [placeholder]
-//currently spawning is started on level 5
-
-
-//obj_enemy_spawner.alarm[0] = (irandom(30) + 15) * 60; 
-//obj_enemy_spawner.alarm[0] = 180; 
+            <string>///spawn an enemy and set the respawn timer
+scr_spawn_enemy();
+scr_set_enemy_spawn(2);
 </string>
           </argument>
         </arguments>
@@ -53,8 +50,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///spawn an enemy
+            <string>///spawn an enemy and set the respawn timer
 scr_spawn_enemy();
+scr_set_enemy_spawn(1);
 </string>
           </argument>
         </arguments>
@@ -77,55 +75,11 @@ scr_spawn_enemy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///spawn an enemy
+            <string>///spawn an enemy and set the respawn timer
 scr_spawn_enemy();
+scr_set_enemy_spawn(0);
 
-/*
-var xpos_enemy = random(room_width);
-var ypos_enemy = random(room_height);
-var enemy_direction = 0;
-if(xpos_enemy &gt;= ypos_enemy) {
-    if(xpos_enemy &gt; room_width/2){
-        xpos_enemy = room_width;
-        if (ypos_enemy &gt; room_height/2){    
-            enemy_direction = 180 - random(60);
-        } else {
-            enemy_direction = 180 + random(60);
-        }
 
-    } else {
-        xpos_enemy = 0;
-        if (ypos_enemy &gt; room_height/2){    
-            enemy_direction = 0 + random(60);
-        } else {
-            enemy_direction = 0 - random(60);
-        }
-    }
-} else {
-    if(ypos_enemy &gt; room_height/2){
-        ypos_enemy = room_height;
-        if (xpos_enemy &gt; room_width/2){    
-            enemy_direction = 90 + random(60);
-        } else {
-            enemy_direction = 90 - random(60);
-        }
-
-    } else {
-        ypos_enemy = 0;
-        if (xpos_enemy &gt; room_width/2){    
-            enemy_direction = 270 - random(60);
-        } else {
-            enemy_direction = 270 + random(60);
-        }
-    }
-}
-
-enemy_ship = instance_create(xpos_enemy, ypos_enemy, obj_enemy);
-enemy_ship.speed = 1 * (random(2) + 0.75); 
-enemy_ship.rotation_speed = (random(8) - 4);
-enemy_ship.rotation_speed = enemy_ship.rotation_speed + 3 * sign(enemy_ship.rotation_speed);
-enemy_ship.direction = enemy_direction;
-*/
 </string>
           </argument>
         </arguments>

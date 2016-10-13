@@ -62,23 +62,18 @@ alarm[0] = 15 * 60;//disappear after 15 sec
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>other</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>other.power_up = true;
-other.state = state.laser;
+            <string>self.state = state.normal;
+scr_do_player_state();
 
-//other.image_speed = 0;
-//other.sprite_index = spr_player_2_ram;
-//other.image_index = 0;
-//other.alarm[1] = 10 * 60;
-//other.alarm[2] = 8 * 60;//start the transition image
-
-//play a sound
-audio_play_sound(snd_powerup,0,false);
+power_up = true;
+self.state = state.laser;
+scr_do_player_state();
 </string>
           </argument>
         </arguments>
@@ -109,23 +104,18 @@ audio_play_sound(snd_powerup,0,false);
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>other</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>other.power_up = true;
-other.state = state.laser;
+            <string>self.state = state.normal;
+scr_do_player_state();
 
-//other.image_speed = 0;
-//other.sprite_index = spr_player_ram;
-//other.image_index = 0;
-//other.alarm[1] = 10 * 60;
-//other.alarm[2] = 8 * 60;//start the transition image
-
-//play a sound
-audio_play_sound(snd_powerup,0,false);
+power_up = true;
+self.state = state.laser;
+scr_do_player_state();
 </string>
           </argument>
         </arguments>

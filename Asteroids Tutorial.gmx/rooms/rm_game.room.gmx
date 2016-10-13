@@ -19,6 +19,7 @@ global.level = 0;
 global.points = 0;
 
 enum state{
+    invincible,
     normal,
     ram,
     laser,

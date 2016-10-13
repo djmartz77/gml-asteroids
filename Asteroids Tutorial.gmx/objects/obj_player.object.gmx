@@ -26,23 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>///do player spawn invincibility and global powerups
- 
-//self.state = state.laser; //for testing
-self.state = state.normal;
-
 player1 = true;
 player2 = false;
 
-power_up = false;
-invincible = true;
+self.state = state.invincible;
+scr_do_player_state();
 
 penetrating_shot = global.penetrating_shot;
 infinite_penetration = global.infinite_penetration;
-persistent_shot = global.persistent_shot;
-
-image_speed = 1/3;
-alarm[0] = 240;
- 
+persistent_shot = global.persistent_shot; 
 </string>
           </argument>
         </arguments>
@@ -66,6 +58,9 @@ alarm[0] = 240;
           <argument>
             <kind>1</kind>
             <string>///do the player death animation
+self.state = state.normal;
+scr_do_player_state();
+
 var random_angle = random(360)
 var o;
 
@@ -84,6 +79,7 @@ o.image_index = 1;
 with (obj_dead_player) {
     direction = angle;
     image_angle = angle;
+    image_speed = 0;
     speed = 3;
 }
 
@@ -100,9 +96,6 @@ if (global.player_1_lives &gt; 0){
         instance_create(0,0, obj_game_over);
     }
 }
-
-//end any power ups
-scr_end_player_powerups_quiet(); 
 
 
 </string>
@@ -180,10 +173,8 @@ sprite_index = spr_player;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(!power_up){
-    sprite_index = spr_player;
-}
-invincible = false;
+            <string>self.state = state.normal;
+scr_do_player_state();
 </string>
           </argument>
         </arguments>
@@ -213,7 +204,7 @@ if((abs(speed)-global.speed_decay) &gt;= 0){
     speed = 0;
 }
 
-scr_move_player();
+scr_move_wrap();
 
 </string>
           </argument>
@@ -390,7 +381,7 @@ if(!global.quiet_thrusters){
           <argument>
             <kind>1</kind>
             <string>///fire based on state
-if (self.state == state.normal){
+if (self.state == state.normal || self.state == state.invincible){
     bullet = instance_create(x, y, obj_bullet);
     bullet.direction = image_angle;
     bullet.speed = global.bullet_speed;
@@ -423,7 +414,7 @@ if (self.state == state.normal){
           <argument>
             <kind>1</kind>
             <string>///fire bullet 2P Mode
-if (global.two_player_mode &amp;&amp; self.state == state.normal){
+if (global.two_player_mode &amp;&amp; (self.state == state.normal || self.state == state.invincible)){
     bullet = instance_create(x, y, obj_bullet);
     bullet.direction = image_angle;
     bullet.speed = global.bullet_speed;
