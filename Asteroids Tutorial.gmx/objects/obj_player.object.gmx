@@ -32,6 +32,8 @@ player2 = false;
 self.state = state.invincible;
 scr_do_player_state();
 
+self.weapon = weapon.normal;
+
 penetrating_shot = global.penetrating_shot;
 infinite_penetration = global.infinite_penetration;
 persistent_shot = global.persistent_shot; 
@@ -329,7 +331,7 @@ image_angle += global.rotation_speed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(state = state.laser){
+            <string>if(self.state = state.laser){
     scr_start_laser();
 }
 </string>

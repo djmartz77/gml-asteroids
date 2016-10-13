@@ -13,7 +13,6 @@ switch(self.state ){
     break;
 
     case state.normal:
-        invincible = false;
         if(instance_exists(obj_laser)){
             with(obj_laser){
                 if(self.shooter == other){
@@ -60,15 +59,6 @@ switch(self.state ){
         alarm[2] = 8 * 60;//start the transition image
         //play a sound
         audio_play_sound(snd_powerup,0,false);
-        break;
-    
-    case state.penetrating:
-        break;
-    
-    case state.infinite_penetration:
-        break;    
-    
-    case state.persistent_shot:
         break;
     
     default:
