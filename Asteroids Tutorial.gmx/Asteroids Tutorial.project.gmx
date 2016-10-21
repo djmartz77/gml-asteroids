@@ -154,14 +154,12 @@
       <object>objects\obj_pers_shot_on</object>
       <object>objects\obj_pen_shot_on</object>
       <object>objects\obj_quiet_thrusters_on</object>
-      <object>objects\obj_asteroid_bounce_on</object>
       <object>objects\obj_wall_bounce_off</object>
       <object>objects\obj_inf_pen_off</object>
       <object>objects\obj_quiet_thrusters_off</object>
       <object>objects\obj_in_game_pow_off</object>
       <object>objects\obj_pers_shot_off</object>
       <object>objects\obj_pen_shot_off</object>
-      <object>objects\obj_asteroid_bounce_off</object>
       <object>objects\obj_1_lives</object>
       <object>objects\obj_2_lives</object>
       <object>objects\obj_2_speed_levels</object>
@@ -178,7 +176,6 @@
       <object>objects\obj_level_cycle</object>
       <object>objects\obj_asteroids_bounce_section</object>
       <object>objects\obj_wall_bounce</object>
-      <object>objects\obj_asteroid_bounce</object>
       <object>objects\obj_penetrating_shot</object>
       <object>objects\obj_infinite_penetration</object>
       <object>objects\obj_quiet_thrusters</object>

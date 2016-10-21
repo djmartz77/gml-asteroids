@@ -72,14 +72,14 @@ switch (obj_options_screen.opt_pos) {
         }
         break;
 
-    case options.asteroid_bounce:
+    /*case options.asteroid_bounce:
         //toggle whether asteroids bounce off each other or not
         if(global.asteroid_bounce) {
             global.asteroid_bounce = false;
         } else {
             global.asteroid_bounce = true;
         }
-        break;
+        break;*/
 
     case options.reset_hs:
         //set the flag to reset the high score

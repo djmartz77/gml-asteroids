@@ -19,7 +19,7 @@
     penetrating_shot,
     infinite_penetration,
     room_bounce,
-    asteroid_bounce,
+    //asteroid_bounce,
     reset_hs,
     save,
     cancel
@@ -79,12 +79,9 @@
     <instance objName="obj_wall_bounce" x="43" y="553" name="inst_2E4391F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_bounce_on" x="366" y="553" name="inst_23D5D8CF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_bounce_off" x="430" y="553" name="inst_D8EFC904" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_asteroid_bounce" x="47" y="597" name="inst_EB098B0A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_asteroid_bounce_on" x="366" y="597" name="inst_2AC6C8E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_2_speed_levels" x="366" y="212" name="inst_62095178" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_3_speed_levels" x="398" y="212" name="inst_EA4297FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_5_speed_levels" x="462" y="212" name="inst_D2704689" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_asteroid_bounce_off" x="430" y="597" name="inst_0AB570E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_quiet_thrusters" x="58" y="264" name="inst_BB182819" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_quiet_thrusters_on" x="366" y="264" name="inst_DA43A08B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_quiet_thrusters_off" x="430" y="264" name="inst_F24FB36E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
